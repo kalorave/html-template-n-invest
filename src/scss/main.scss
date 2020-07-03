@@ -1,3 +1,77 @@
+@import "base/reset";
+@import "base/fonts";
+@import "base/variables";
+@import "base/mixins";
+
 html {
-  font-size: 16px;
+  font-size: 0.83vw;
+  font-family: Mont;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+.header {
+  $width-logo: 21%;
+
+  @include flex-container(space-between, center);
+  width: 100%;
+  height: $height-header;
+  box-shadow: 0 0 1.5rem -0.2rem rgba(0, 0, 0, 0.4);
+  position: fixed;
+  .logo {
+    @include flex-container(center, center);
+    width: $width-logo;
+    height: 100%;
+    background-color: $color--white;
+    svg {
+      height: 80%;
+    }
+  }
+  nav {
+    @include flex-container(space-between, center);
+    width: 100 - $width-logo;
+    height: 100%;
+    background-color: $color--primary;
+    a {
+      @include flex-container(center, center);
+      height: 100%;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 2rem;
+      padding: 0 1.7rem;
+      text-transform: uppercase;
+      color: $color--white;
+      transition: all 0.2s linear;
+      &:hover, &.active {
+        background-color: $color--green;
+      }
+    }
+  }
+}
+
+.main {
+  padding-top: $height-header;
+  * {
+    outline: 1px solid green;
+  }
+}
+
+.banner {
+  @include flex-container(space-between, center);
+  height: 100vh;
+  .aside {
+    height: 100%;
+    width: $width-logo;
+  }
+  .content {
+    height: 100%;
+    width: 100 - $width-logo;
+  }
 }
