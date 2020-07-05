@@ -6,6 +6,7 @@
 html {
   font-size: 0.83vw;
   font-family: Mont;
+  background-color: #ccc;
 }
 
 a {
@@ -18,8 +19,6 @@ li {
 }
 
 .header {
-  $width-logo: 21%;
-
   @include flex-container(space-between, center);
   width: 100%;
   height: $height-header;
@@ -54,24 +53,85 @@ li {
       }
     }
   }
+  .feedBack-btn {
+    position: absolute;
+    right: 0;
+    top: 11.25rem;
+    & > div {
+      @include flex-container(center, center);
+      background-color: $color--primary;
+      color: $color--white;
+      width: 4.3rem;
+      height: 4rem;
+      margin-bottom: 2.2rem;
+      font-weight: 900;
+      font-size: 4.2rem;
+      cursor: pointer;
+      &:last-child {
+        background-color: $color--green;
+        padding-bottom: 0.4rem;
+        box-sizing: border-box;
+      }
+      svg {
+        width: 2.4rem;
+        fill: $color--green;
+      }
+    }
+  }
 }
 
 .main {
   padding-top: $height-header;
-  * {
-    outline: 1px solid green;
-  }
 }
 
 .banner {
   @include flex-container(space-between, center);
-  height: 100vh;
   .aside {
-    height: 100%;
     width: $width-logo;
+    background-color: $color--primary;
+    .centralHouse-logo {
+      @include flex-container(center, center);
+      padding-top: 1.5rem;
+      img {
+        width: 75%;
+      }
+    }
+    .advantages {
+      margin: 4.3rem 1rem 0 1rem;
+      li {
+        @include flex-container(space-between, center)
+        display: flex;
+        color: $color--white;
+        font-weight: 600;
+        font-size: 1.45rem;
+        line-height: 1.9rem;
+        p {
+          width: 16.5rem;
+        }
+        & > span {
+          @include flex-container(center, center);
+          width: 5.5rem;
+          height: 5.6rem;
+          & > img {
+            width: 3.5rem;
+          }
+        }
+      }
+    }
+    .social {
+      @include flex-container(center, center);
+      padding: 1.6rem 0 4.8rem 0;
+      margin: 0 5rem;
+      & > a {
+        cursor: pointer;
+        margin: 0 1.1rem;
+        svg {
+          width: 3.2rem;
+        }
+      }
+    }
   }
   .content {
-    height: 100%;
     width: 100 - $width-logo;
   }
 }
