@@ -1,6 +1,7 @@
 //base
 $width-logo: 20.8%;
 $height-header: 6.2rem;
+$pretty-box-shadow: 0 0 1.5rem -0.2rem rgba(0, 0, 0, 0.4);
 //color
 
 $color--primary: #253B48;
@@ -12,3 +13,6 @@ $color--black: #000000;
 
 $color--gray1: #e8e8e8;
 $color--gray2: #696969;
+
+//z index
+$z-index-header: 900;

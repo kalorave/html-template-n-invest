@@ -7,6 +7,7 @@ html {
   font-size: 0.83vw;
   font-family: Mont;
   background-color: #ccc;
+  height: 5000px;
 }
 
 a {
@@ -22,8 +23,9 @@ li {
   @include flex-container(space-between, center);
   width: 100%;
   height: $height-header;
-  box-shadow: 0 0 1.5rem -0.2rem rgba(0, 0, 0, 0.4);
+  box-shadow: $pretty-box-shadow;
   position: fixed;
+  z-index: $z-index-header;
   .logo {
     @include flex-container(center, center);
     width: $width-logo;
@@ -59,6 +61,7 @@ li {
     top: 11.25rem;
     & > div {
       @include flex-container(center, center);
+      box-shadow: $pretty-box-shadow;
       background-color: $color--primary;
       color: $color--white;
       width: 4.3rem;
@@ -85,7 +88,7 @@ li {
 }
 
 .banner {
-  @include flex-container(space-between, center);
+  @include flex-container(space-between, stretch);
   .aside {
     width: $width-logo;
     background-color: $color--primary;
@@ -132,6 +135,122 @@ li {
     }
   }
   .content {
+    background-image: url('../img/baner_background.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
     width: 100 - $width-logo;
+    position: relative;
+    h1 {
+      display: inline-block;
+      background-color: $color--green;
+      font-weight: 900;
+      font-size: 3.3rem;
+      color: $color--white;
+      padding: 2.1rem 1rem 2.9rem 1rem;
+      margin: 2.4rem 0 0 2rem;
+      line-height: 0;
+    }
+    .description-list {
+      margin: 2.4rem 0 0 2rem;
+      & > li {
+        color: $color--white;
+        font-size: 1.6rem;
+        font-weight: 900;
+        margin-bottom: 0.6rem;
+        & > span {
+          color: $color--primary;
+        }
+      }
+    }
+  }
+}
+
+#svg-scheme-map {
+  position: absolute;
+  top: 16.7rem;
+  left: 2rem;
+  right: 0;
+  bottom: 0;
+  .section-list {
+    & > div {
+      @include flex-container(space-between, center);
+      box-shadow: $pretty-box-shadow;
+      position: absolute;
+      width: 13.3rem;
+      height: 3.1rem;
+      display: none;
+      &.active {
+        display: flex;
+      }
+      &:nth-child(1) {top: 6.7rem;left: 0rem;}
+      &:nth-child(2) {top: 2.9rem;left: 13.5rem;}
+      &:nth-child(3) {top: -1.9rem;left: 30rem;}
+      &:nth-child(4) {top: -6.5rem;left: 47rem;}
+      &:nth-child(5) {top: -12rem;left: 66.3rem;}
+      & > span {
+        @include flex-container(center, center);
+        color: $color--white;
+        font-weight: 900;
+        font-size: 2rem;
+        height: 100%;
+      }
+      & > span:first-child {
+        background-color: $color--primary;
+        width: 100%;
+      }
+      & > span:last-child {
+        background-color: $color--green;
+        width: 30%;
+        position: relative;
+        &:before {
+          content: '';
+          position: absolute;
+          display: block;
+          bottom: -1.5rem;
+          border: 0.9rem solid $color--green;
+          border-left-color: transparent;
+          border-right-color: transparent;
+          border-bottom-color: transparent;
+        }
+      }
+    }
+  }
+  .floor-tooltip {
+    color: red;
+    background-color: $color--green;
+    color: $color--white;
+    box-shadow: $pretty-box-shadow;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 0.7rem 2rem;
+    p {
+      font-weight: 900;
+      font-size: 3rem;
+      font-size: 4rem;
+    }
+  }
+  .svg-container {
+    @include flex-container(center, center);
+    svg {
+      width: 100%;
+    }
+  }
+  path {
+    fill: $color--green;
+    cursor: pointer;
+    opacity: 0.75;
+    transition: all 0.2s linear;
+    &:hover {
+      opacity: 0;
+    }
+  }
+  .floor-tooltip {
+    position: absolute;
+    display: none;
+    text-align: center;
+    &.active {
+      display: block;
+    }
   }
 }
