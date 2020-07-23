@@ -1,371 +1,239 @@
-@import "base/reset";
-@import "base/fonts";
-@import "base/variables";
-@import "base/mixins";
+@import 'base/reset';
+@import 'base/fonts';
+@import 'base/variables';
+@import 'base/mixins';
+
+// * {
+//   transition: all 0.25s linear;
+// }
 
 html {
-  font-size: 0.83vw;
-  font-family: Mont;
-  height: 5000px;
+  font-size: 1.5vmin;
+  font-family: mont;
 }
 
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
+// @media (max-width: 1750px) {
+//   html {
+//     font-size: 1.3vmin;
+//   }
+// }
+// @media (max-width: 1550px) {
+//   html {
+//     font-size: 1vmin;
+//   }
+// }
 
-li {
-  list-style: none;
-}
-
-h2 {
-  font-weight: 900;
-  // font-size: 40px;
-  // line-height: 53px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-header.header {
+header {
   @include flex-container(space-between, center);
+  position: fixed;
   width: 100%;
   height: $height-header;
-  box-shadow: $pretty-box-shadow;
-  position: fixed;
+  top: 0;
+  background-color: $color--primary;
   z-index: $z-index-header;
+  font-size: 3rem;
   .logo {
     @include flex-container(center, center);
-    width: $width-logo;
-    height: 100%;
     background-color: $color--white;
+    height: 100%;
+    width: $width-logo;
+    cursor: pointer;
     svg {
       height: 80%;
+      width: 80%;
     }
+    flex-shrink: 0;
   }
   nav {
     @include flex-container(space-between, center);
-    width: 100 - $width-logo;
+    outline: 1px solid green;
+    width: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
     height: 100%;
-    background-color: $color--primary;
+    font-size: 2.3rem;
     a {
+      flex: 1 1 auto;
       @include flex-container(center, center);
+      outline: 1px solid #555;
       height: 100%;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 2rem;
-      padding: 0 1.7rem;
-      text-transform: uppercase;
+      text-decoration: none;
       color: $color--white;
-      transition: all 0.2s linear;
-      &:hover, &.active {
-        background-color: $color--green;
-      }
-    }
-  }
-  .feedBack-btn {
-    position: absolute;
-    right: 0;
-    top: 11.25rem;
-    & > div {
-      @include flex-container(center, center);
-      box-shadow: $pretty-box-shadow;
-      background-color: $color--primary;
-      color: $color--white;
-      width: 4.3rem;
-      height: 4rem;
-      margin-bottom: 2.2rem;
-      font-weight: 900;
-      font-size: 4.2rem;
+      transition: all 0.25s linear;
       cursor: pointer;
-      &:last-child {
+      &:hover {
         background-color: $color--green;
-        padding-bottom: 0.4rem;
-        box-sizing: border-box;
-      }
-      svg {
-        width: 2.4rem;
-        fill: $color--green;
       }
     }
   }
 }
 
-main.main {
-  padding-top: $height-header;
+h1 {
+  font-size: 5rem;
+  font-family: Mont;
+  margin-left: 2rem;
+  margin-top: $height-header;
 }
 
-section.banner {
-  @include flex-container(space-between, stretch);
-  .aside {
-    width: $width-logo;
-    background-color: $color--primary;
-    .centralHouse-logo {
-      @include flex-container(center, center);
-      padding-top: 1.5rem;
-      img {
-        width: 75%;
-      }
+pre {
+  font-family: Mont;
+  font-size: 2rem;
+  padding-top: 1rem;
+  line-height: 3rem;
+  margin-left: -2rem;
+}
+
+.section.banner {
+  background-color: #3CAEDC;
+  // background-color: #999;
+  // width: 50%;
+  // margin: 0 auto;
+  .content-wrap {
+    @include flex-container(flex-end, stretch);
+    height: 100%;
+    position: relative;
+    aside {
+      background-color: lightgreen;
+      width: $width-logo;
+      position: absolute;
+      left: 0;
+      height: 100%;
+      z-index: 999;
     }
-    .advantages {
-      margin: 4.3rem 1rem 0 1rem;
-      li {
-        @include flex-container(space-between, center)
-        display: flex;
-        color: $color--white;
-        font-weight: 600;
-        font-size: 1.45rem;
-        line-height: 1.9rem;
-        p {
-          width: 16.5rem;
+    .interactive-map-container {
+      background-image: url('../img/baner_background.png'), url('../img/sky_bcg.jpg');
+      background-position: right bottom, right bottom;
+      background-repeat: no-repeat, no-repeat;
+      background-size: 100%, cover;
+      height: 100%;
+      width: 80%;
+      position: relative;
+      svg {
+        position: absolute;
+        width: 98%;
+        right: 0;
+        bottom: 0.6rem;
+        transition: all 0.25s linear;
+        &.desktop {
+          display: auto;
         }
-        & > span {
-          @include flex-container(center, center);
-          width: 5.5rem;
-          height: 5.6rem;
-          & > img {
-            width: 3.5rem;
+        &.mobile {
+          display: none;
+        }
+        path {
+          stroke: purple;
+          fill: rgba(0, 0, 0, .4);
+          cursor: pointer;
+          &:hover {
+            fill: rgba(0, 0, 0, .8);
           }
         }
       }
     }
-    .social {
-      @include flex-container(center, center);
-      padding: 1.6rem 0 5.3rem 0;
-      margin: 0 5rem;
-      & > a {
-        cursor: pointer;
-        margin: 0 1.1rem;
-        svg {
-          width: 3.2rem;
-        }
-      }
-    }
   }
-  .content {
-    background-image: url('../img/baner_background.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    width: 100 - $width-logo;
+}
+
+.section.test-floor {
+  background-color: #999;
+  .content-wrap {
+    @include flex-container(flex-end, stretch);
+    height: 100%;
     position: relative;
-    h1 {
-      display: inline-block;
-      background-color: $color--green;
-      font-weight: 900;
-      font-size: 3.3rem;
-      color: $color--white;
-      padding: 2.1rem 1rem 2.9rem 1rem;
-      margin: 2.4rem 0 0 2rem;
-      line-height: 0;
-    }
-    .description-list {
-      margin: 2.4rem 0 0 2rem;
-      & > li {
-        color: $color--white;
-        font-size: 1.6rem;
-        font-weight: 900;
-        margin-bottom: 0.6rem;
-        & > span {
-          color: $color--primary;
-        }
-      }
-    }
-  }
-}
-
-#svg-scheme-map {
-  position: absolute;
-  top: 16.7rem;
-  left: 2rem;
-  right: 0;
-  bottom: 0;
-  .section-list {
-    & > div {
-      @include flex-container(space-between, center);
-      box-shadow: $pretty-box-shadow;
+    aside {
+      background-color: lightgreen;
+      width: $width-logo;
       position: absolute;
-      width: 13.3rem;
-      height: 3.1rem;
-      display: none;
-      &.active {
-        display: flex;
+      left: 0;
+      height: 100%;
+      z-index: 999;
+    }
+    .interactive-map-container {
+      background: url('../img/section2_1.png');
+      background-size: 60%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      height: 100%;
+      width: 80%;
+      position: relative;
+      @include flex-container(center, center);
+      svg {
+        position: absolute;
+        width: 60%;
+        outline: 1px solid green;
+        transition: all 0.25s linear;
+        path {
+          stroke: purple;
+          fill: rgba(33, 1, 111, .9);
+          cursor: pointer;
+          &:hover {
+            fill: rgba(0, 0, 0, .6);
+          }
+        }
       }
-      &:nth-child(1) {top: 6.7rem;left: 0rem;}
-      &:nth-child(2) {top: 2.9rem;left: 13.5rem;}
-      &:nth-child(3) {top: -1.9rem;left: 30rem;}
-      &:nth-child(4) {top: -6.5rem;left: 47rem;}
-      &:nth-child(5) {top: -12rem;left: 66.3rem;}
-      & > span {
-        @include flex-container(center, center);
-        color: $color--white;
-        font-weight: 900;
-        font-size: 2rem;
+    }
+  }
+}
+
+.about {
+  background-color: skyblue;
+}
+@media (max-aspect-ratio: 6 / 5) {
+  * {
+    outline: 1px solid green;
+  }
+  .section.banner {
+    background-color: #999;
+    .content-wrap {
+      @include flex-container(flex-end, stretch);
+      height: 100%;
+      aside {
+        display: none;
+      }
+      .interactive-map-container {
+        background-image: url('../img/mobile_main.png');
+        background-size: 100%;
+        background-position: center top;
+        background-repeat: no-repeat;
         height: 100%;
-      }
-      & > span:first-child {
-        background-color: $color--primary;
         width: 100%;
-      }
-      & > span:last-child {
-        background-color: $color--green;
-        width: 30%;
         position: relative;
-        &:before {
-          content: '';
-          position: absolute;
-          display: block;
-          bottom: -1.5rem;
-          border: 0.9rem solid $color--green;
-          border-left-color: transparent;
-          border-right-color: transparent;
-          border-bottom-color: transparent;
-        }
-      }
-    }
-  }
-  .floor-tooltip {
-    color: red;
-    background-color: $color--green;
-    color: $color--white;
-    box-shadow: $pretty-box-shadow;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    padding: 0.7rem 2rem;
-    p {
-      font-weight: 900;
-      font-size: 3rem;
-      font-size: 4rem;
-    }
-  }
-  .svg-container {
-    @include flex-container(center, center);
-    svg {
-      width: 100%;
-    }
-  }
-  path {
-    fill: $color--green;
-    cursor: pointer;
-    opacity: 0.75;
-    transition: all 0.2s linear;
-    &:hover {
-      opacity: 0;
-    }
-  }
-  .floor-tooltip {
-    position: absolute;
-    display: none;
-    text-align: center;
-    &.active {
-      display: block;
-    }
-  }
-}
-
-section.about {
-  @include flex-container(space-between, stretch);
-  margin: 0 auto;
-  width: 87%;
-  padding-top: $height-header + 9.1;
-  .figure {
-    width: 40.3rem;
-    img {
-      width: 100%;
-    }
-    .header {
-      @include flex-container(space-between, stretch);
-      background-color: $color--green;
-      color: $color--white;
-      & > p {
-        @include flex-container(felx-start, center);
-        text-transform: uppercase;
-        font-weight: 900;
-        font-size: 2.43rem;
-        line-height: 3.3rem;
-        width: 20.9rem;
-        padding: 0.69rem 0 1.4rem 2.15rem;
-      }
-      & > div {
-        @include flex-container(center, center);
-        background-color: $color--black;
-        width: 17.25rem;
-        img {
-          width: 66%;
-        }
-      }
-    }
-    .footer {
-      @include flex-container(space-between, stretch);
-      background-color: $color--green;
-      color: $color--white;
-      margin-top: 2.5rem;
-      & > p {
-        @include flex-container(felx-start, center);
-        text-transform: uppercase;
-        font-weight: normal;
-        font-size: 3.26rem;
-        width: 30.55rem;
-        padding: 0.73rem 0 1.45rem 2.15rem;
-      }
-      & > div {
-        @include flex-container(center, center);
-        background-color: $color--primary;
-        width: 7.5rem;
         svg {
-          width: 1.5rem;
+          position: relative;
+          width: 94%;
+          left: auto;
+          right: -0.6rem;
+          bottom: -5rem;
+          transition: all 0.25s linear;
+          &.desktop {
+            display: none;
+          }
+          &.mobile {
+            display: block;
+          }
+          path {
+            stroke: purple;
+            fill: rgba(0, 0, 0, .4);
+            cursor: pointer;
+            &:hover {
+              fill: rgba(0, 0, 0, .8);
+            }
+          }
         }
-      }
-    }
-  }
-
-  .text {
-    flex-grow: 1;
-    padding: 0 0 0 2.58rem;
-    & > p {
-      font-weight: 600;
-      font-size: 1.49rem;
-      line-height: 2rem;
-      color: $color--black;
-      margin-bottom: 2rem;
-      text-indent: 1rem;
-      &:first-child {
-        margin-top: -0.5rem;
-      }
-      span {
-        font-weight: 900;
-        color: $color--primary;
-      }
-    }
-  }
-}
-
-section.equipment {
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 21rem;
-}
-
-.table {
-  margin-top: -0.1rem;
-  .row {
-    @include flex-container(flex-start, center);
-    padding: 0.3rem 1rem 0.7rem 2.6rem;
-    margin-bottom: 1rem;
-    line-height: 1.7rem;
-    &:nth-child(odd) {
-      background-color: $color--gray1;
-    }
-    .cell {
-      color: $color--primary;
-      &:first-child {
-        font-size: 1.22rem;
-        font-weight: 900;
-        width: 17.9rem;
-        flex-shrink: 0;
-      }
-      &:last-child {
-        font-size: 1.245rem;
-        font-weight: 300;
+        .mobile {
+          @include flex-container(flex-start, center);
+          flex-wrap: wrap;
+          padding: 1rem;
+          margin-top: 7rem;
+          div {
+            width: 7rem;
+            height: 7rem;
+            background-color: brown;
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+          }
+        }
       }
     }
   }
