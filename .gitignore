@@ -1,1 +1,3 @@
 /node_modules
+build/index.html
+build/css/main.min.css
