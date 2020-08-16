@@ -319,23 +319,27 @@ header {
   margin-top: 1.3rem;
   & > h2 {
     color: $color-green;
+    margin-top: 5rem;
   }
   .figures-wrap {
     @include flex-container(center, center);
     flex-wrap: wrap;
     width: 61%;
     margin-top: 5rem;
+    margin-bottom: 1rem;
     & > figure {
       @include flex-container(center, center);
       flex-direction: column;
       width: 33.333%;
+      margin-bottom: 2.5rem;
       .img-wrap {
         @include flex-container(center, center);
         background-color: $color-gray3;
-        display: block;
-        text-align: center;
         width: 16rem;
         height: 10rem;
+        img {
+          width: 50%;
+        }
       }
       figcaption {
         background-color: $color-green;
@@ -349,7 +353,126 @@ header {
       }
     }
   }
+  .discription {
+    width: 60%;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 2rem;
+    line-height: 3rem;
+    span {
+      color: $color-green;
+      font-weight: 900;
+    }
+  }
 }
+
+.section-footer {
+  position: relative;
+  background-image: url('../img/central_house_preview4.jpg');
+  background-size: cover;
+  background-position: center center;
+  .filter {
+    background: rgba(0, 0, 0, 0.75);
+  }
+  .content-wrap{
+    @include flex-container(space-between, center);
+    width: 89.5%;
+    outline: 1px solid black;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    color: $color-white;
+    & > div {
+      & > h2 {
+        font-size: 4.82rem;
+        font-weight: 900;
+      }
+    }
+    .left {
+      @include flex-container(center, space-between);
+      flex-direction: column;
+      width: 49.3%;
+      margin-top: 7rem;
+      line-height: 3.11rem;
+      background-color: $color-primary;
+      height: 83%;
+      .address {
+        margin-top: 5rem;
+      }
+      .phone {
+        margin-top: 2rem;
+      }
+      p {
+        font-size: 2.47rem;
+        font-weight: 300;
+        .strong {
+          font-weight: 900;
+        }
+        .br {
+          display: block;
+        }
+      }
+      .worktime {
+        margin-top: 2rem;
+      }
+      .social {
+        @include flex-container(center, center);
+        margin-top: 5rem;
+        & > a {
+          width: 3.4rem;
+          margin: 0 1rem;
+          svg {
+            width: 100%;
+            path {
+              fill: $color-white;
+            }
+            circle {
+              stroke: $color-white;
+            }
+          }
+        }
+      }
+    }
+    .right {
+      @include flex-container(center, center);
+      flex-direction: column;
+      width: 46.2%;
+      .footer-logo {
+        background-image: url('../img/ninvest_logo_img.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 20rem;
+        height: 20rem;
+        margin-top: 10rem;
+      }
+      & > h2 {
+        margin-top: 3rem;
+      }
+      ul {
+        line-height: 2.1rem;
+        width: 33rem;
+        margin-top: 4rem;
+        li {
+          font-size: 1.61rem;
+          margin-bottom: 1rem;
+          position: relative;
+          .svg-wrap {
+            position: absolute;
+            left: -2.1rem;
+            top: 1rem;
+            svg {
+              width: 0.8rem;
+              stroke: $color-green;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
 // * {
 //   outline: 1px solid green;
 // }
