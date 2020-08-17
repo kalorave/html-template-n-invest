@@ -316,7 +316,8 @@ header {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  margin-top: 1.3rem;
+  background: $mosaic-bkg;
+  margin-top: 0.5rem;
   & > h2 {
     color: $color-green;
     margin-top: 5rem;
@@ -325,13 +326,12 @@ header {
     @include flex-container(center, center);
     flex-wrap: wrap;
     width: 61%;
-    margin-top: 5rem;
-    margin-bottom: 1rem;
+    margin-top: 4rem;
     & > figure {
       @include flex-container(center, center);
       flex-direction: column;
       width: 33.333%;
-      margin-bottom: 2.5rem;
+      margin-bottom: 4rem;
       .img-wrap {
         @include flex-container(center, center);
         background-color: $color-gray3;
@@ -356,12 +356,49 @@ header {
   .discription {
     width: 60%;
     text-align: center;
-    margin-top: 1rem;
-    font-size: 2rem;
-    line-height: 3rem;
+    font-size: 1.88rem;
+    line-height: 2.6rem;
     span {
       color: $color-green;
       font-weight: 900;
+    }
+  }
+}
+
+.section-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .item {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    &.item1 {background-image: url('../img/central_house_preview3.jpg');}
+    &.item2 {background-image: url('../img/central_house_preview4.jpg');}
+    &.item3 {background-image: url('../img/central_house_preview5.jpg');}
+    &.item4 {background-image: url('../img/central_house_preview6.jpg');}
+  }
+  .slider-nav {
+    @include flex-container(center, center);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    .links-wrap {
+      @include flex-container(center, center, inline-flex);
+      background-color: rgba(0, 0, 0, .75);
+      a {
+        background-size: cover;
+        background-position: center;
+        width: 12rem;
+        height: 8.5rem;
+        margin: 1rem;
+        margin-bottom: 0;
+        &:nth-child(1) {background-image: url('../img/central_house_preview3.jpg');}
+        &:nth-child(2) {background-image: url('../img/central_house_preview4.jpg');}
+        &:nth-child(3) {background-image: url('../img/central_house_preview5.jpg');}
+        &:nth-child(4) {background-image: url('../img/central_house_preview6.jpg');}
+      }
     }
   }
 }
@@ -377,7 +414,6 @@ header {
   .content-wrap{
     @include flex-container(space-between, center);
     width: 89.5%;
-    outline: 1px solid black;
     height: 100%;
     margin: 0 auto;
     text-align: center;

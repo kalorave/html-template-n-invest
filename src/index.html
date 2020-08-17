@@ -4,6 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>n-invest</title>
   <link rel="stylesheet" href="css/main.min.css">
+
+  <link rel="stylesheet" type="text/css" href="slick.css">
+  <link rel="stylesheet" type="text/css" href="slick-theme.css">
+
 </head>
 <body>
   <header>
@@ -247,12 +251,26 @@
           Тут і <span>насичена інфраструктура і різноманітність місць для проведення відпочинку, занять спортом та зручне транспортне сполучення</span> з центром та іншими районами міста.
         </p>
       </div>
-    </section>
-    <section class="section">
-      <div class="slides-wrap">
-
-      </div>
     </section> -->
+
+    <section class="section">
+      <div class="section-slider">
+        <section class="slider-slick">
+          <div class="item item1"></div>
+          <div class="item item2"></div>
+          <div class="item item3"></div>
+          <div class="item item4"></div>
+        </section>
+        <div class="slider-nav">
+          <div class="links-wrap action">
+            <a data-slide="1"></a>
+            <a data-slide="2"></a>
+            <a data-slide="3"></a>
+            <a data-slide="4"></a>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="section">
       <div class="section-footer">
         <div class="filter">
@@ -338,62 +356,84 @@
       </div>
     </section>
   </div>
-  <!-- test background image -->
-  <script>
-    function runOnKeys(func, ...codes) {
-      let pressed = new Set();
 
-      document.addEventListener('keydown', function(event) {
-        pressed.add(event.code);
+<!-- test background image -->
+<script>
+function runOnKeys(func, ...codes) {
+  let pressed = new Set();
 
-        for (let code of codes) {
-          if (!pressed.has(code)) {
-            return;
-          }
-        }
+  document.addEventListener('keydown', function(event) {
+    pressed.add(event.code);
 
-        pressed.clear();
-
-        func();
-      });
-
-      document.addEventListener('keyup', function(event) {
-        pressed.delete(event.code);
-      });
-
+    for (let code of codes) {
+      if (!pressed.has(code)) {
+        return;
+      }
     }
 
-    runOnKeys(
-      () => document.getElementById('test-img-bcg').classList.toggle('active'),
-      "KeyQ",
-      "KeyW"
-    );
-  </script>
-  <img src="img/test/main_template.jpg" id="test-img-bcg"/>
-  <style media="screen">
-    #test-img-bcg {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      opacity: 0.5;
-      /* top: 0; */
-      /* top: 1080px; */
-      /* top: -2160px; */
-      /* top: -3240px; */
-      /* top: -4320px; */
-      top: -5400px;
-      /* display: none; */
-    }
-    #test-img-bcg.active {
-      display: block;
-    }
-  </style>
+    pressed.clear();
 
-  <script src="js/fullpage.min.js"></script>
-  <script src="js/main.min.js"></script>
+    func();
+  });
+
+  document.addEventListener('keyup', function(event) {
+    pressed.delete(event.code);
+  });
+
+}
+
+runOnKeys(
+  () => document.getElementById('test-img-bcg').classList.toggle('active'),
+  "KeyQ",
+  "KeyW"
+);
+</script>
+<img src="img/test/main_template.jpg" id="test-img-bcg"/>
+<style media="screen">
+#test-img-bcg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.5;
+  /* top: 0; */
+  /* top: 1080px; */
+  /* top: -2160px; */
+  /* top: -3240px; */
+  top: -4320px;
+  /* top: -5400px; */
+  /* display: none; */
+}
+#test-img-bcg.active {
+  display: block;
+}
+</style>
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="slick.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/fullpage.min.js"></script>
+<script src="js/main.min.js"></script>
+
+<script>
+  $(document).on('ready', function() {
+    $(".slider-slick").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false
+    });
+
+    $('a[data-slide]').click(function(e) {
+      e.preventDefault();
+      var slideno = $(this).data('slide');
+      $('.slider-slick').slick('slickGoTo', slideno - 1);
+    });
+  });
+</script>
+
+
+
 </body>
 </html>
