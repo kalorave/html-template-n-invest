@@ -15,9 +15,3 @@ new fullpage('#fullpage');
   });
 
 })();
-
-$(".slider-slick").slick({
-  slidesToShow: 1,
-   slidesToScroll: 1,
-   arrows: false
-});

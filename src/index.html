@@ -262,7 +262,7 @@
           <div class="item item4"></div>
         </section>
         <div class="slider-nav">
-          <div class="links-wrap action">
+          <div class="links-wrap">
             <a data-slide="1"></a>
             <a data-slide="2"></a>
             <a data-slide="3"></a>
@@ -428,7 +428,7 @@ runOnKeys(
     $('a[data-slide]').click(function(e) {
       e.preventDefault();
       var slideno = $(this).data('slide');
-      $('.slider-slick').slick('slickGoTo', slideno - 1);
+      $('.slick-slider').slick('slickGoTo', slideno - 1);
     });
   });
 </script>
