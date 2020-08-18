@@ -1,4 +1,8 @@
-new fullpage('#fullpage');
+new fullpage('#fullpage', {
+  sectionSelector: '.vertical-scrolling',
+  slideSelector: '.horizontal-scrolling',
+  keyboardScrolling: true
+});
 
 (function() {
   let mapElems = document.querySelectorAll('#svg-map path');
