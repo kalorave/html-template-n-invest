@@ -19,3 +19,18 @@ new fullpage('#fullpage', {
   });
 
 })();
+
+$(document).on('ready', function() {
+  $(".slider-slick").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    speed: 250
+  });
+
+  $('a[data-slide]').click(function(e) {
+    e.preventDefault();
+    var slideno = $(this).data('slide');
+    $('.slick-slider').slick('slickGoTo', slideno - 1);
+  });
+});
