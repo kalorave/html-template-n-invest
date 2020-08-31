@@ -22,17 +22,19 @@ new fullpage('#fullpage', {
 
 $(document).on('ready', function() {
   $(".slider-slick").slick({
+    dots: false,
+    arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
-    speed: 250
+    speed: 250,
+    infinite: true,
   });
 
-  $('a[data-slide]').click(function(e) {
-    e.preventDefault();
-    var slideno = $(this).data('slide');
-    $('.slick-slider').slick('slickGoTo', slideno - 1);
-  });
+  // $('a[data-slide]').click(function(e) {
+  //   e.preventDefault();
+  //   var slideno = $(this).data('slide');
+  //   $('.slick-slider').slick('slickGoTo', slideno - 1);
+  // });
 });
 
 $('.open-btn').on('click', function() {
