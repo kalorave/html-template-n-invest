@@ -41,7 +41,9 @@ $font-family-monospace:             Menlo, Monaco, Consolas, "Courier New", mono
 $font-family-base:                  $font-family-sans-serif;
 
 // if device width = 1920 -- 0.84vw = 1.49vmin ~= 16px;
-$font-size-base:                    1.49vmin;
+$font-size-base:                    1.49vh;
+
+$mobile-font-size:                  1vh;
 
 $font-size-h1:                      3.3rem;
 $font-size-h2:                      2.56rem;
@@ -58,6 +60,9 @@ $line-height-base:                  1.8rem;
 
 $width-logo:                        20.8%;
 $height-header:                     6.2rem;
+
+$height-header-mobile:              4.67rem;
+
 $mosaic-bkg:                        repeating-linear-gradient(-39deg, transparent, transparent 7px, white 7px, #EBEBEB 8px);
 
 

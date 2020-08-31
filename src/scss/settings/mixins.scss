@@ -3,3 +3,21 @@
   justify-content: $justify;
   align-items: $align;
 }
+
+@mixin maxAspectRatio($x, $y) {
+  @media (max-aspect-ratio: #{$x} / #{$y}) {
+    @content;
+  }
+}
+
+@mixin minAspectRatio($x, $y) {
+  @media (max-aspect-ratio: #{$x} / #{$y}) {
+    @content;
+  }
+}
+
+@mixin maxAndMinAspectRatio($xMax, $yMax, $xMin, $yMin) {
+  @media (max-aspect-ratio: #{$xMax} / #{$yMax}) and (min-aspect-ratio: #{$xMin} / #{$yMin}) {
+    @content;
+  }
+}

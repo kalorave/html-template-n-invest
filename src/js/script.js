@@ -34,3 +34,8 @@ $(document).on('ready', function() {
     $('.slick-slider').slick('slickGoTo', slideno - 1);
   });
 });
+
+$('.open-btn').on('click', function() {
+  $(this).toggleClass('active');
+  $('.mobile-menu').toggleClass('active');
+})
