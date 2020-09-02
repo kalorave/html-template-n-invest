@@ -30,11 +30,11 @@ $(document).on('ready', function() {
     infinite: true,
   });
 
-  // $('a[data-slide]').click(function(e) {
-  //   e.preventDefault();
-  //   var slideno = $(this).data('slide');
-  //   $('.slick-slider').slick('slickGoTo', slideno - 1);
-  // });
+  $('a[data-slide]').click(function(e) {
+    e.preventDefault();
+    var slideno = $(this).data('slide');
+    $('.slick-slider').slick('slickGoTo', slideno - 1);
+  });
 });
 
 $('.open-btn').on('click', function() {
